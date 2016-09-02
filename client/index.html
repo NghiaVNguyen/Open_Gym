@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>My Store</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css'>
+        <link rel='stylesheet' href='/static/css/style.css'>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
+        <!-- <script src='/static/jquery/ui-bootstrap.js'></script> -->
+
+        <!-- ////carousel//// -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.2.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+        <script src='routeProvider.js'></script>
+        <!-- ////Controllers//// -->
+        <script src='./assets/homeController.js'></script>
+        <script src='./assets/searchController.js'></script>
+        <script src='./assets/newGymController.js'></script>
+        <script src='./assets/loginController.js'></script>
+        <!-- ////Factories//// -->
+        <script src='./services/searchFactory.js'></script>
+        <script src='./services/loginFactory.js'></script>
+
+        <!-- ////Scroll Animation//// -->
+        <script src="angular-scroll-animate/dist/angular-scroll-animate.js"></script>
+
+
+
+    </head>
+
+    <body id='mainBody'>
+        <div id='navBar'>
+            <div class='logo'>
+                <a href='/#/' class='logoA'><img src='images/logo2.png' height="300" width="300"></a>
+                <a class='navBarLink' href='/#/home'> Home </a> <a class='navBarLink' href='/#/about'> About </a> <a class='navBarLink' href='/#/contact'> Contact </a> <a class='navBarLink' href='/#/register'> Register </a>
+                <a class='navBarLink' ng-controller='loginController' class="md-primary md-raised" ng-click="showTabDialog($event)">
+                    Login/Register
+                </a>
+                 <a class='navBarLink' href='/#/register'> Logout </a>
+            </div>
+            <div class='categories'>
+                <input class='searchBar' type="text" name="search" placeholder="Search..">
+                <a class='categoryLink' href='/#/tournaments'> Tournaments </a> <a class='categoryLink' href='/#/search'> Sports </a> <a class='categoryLink' href='/#/Leagues'> Leagues </a>
+            </div>
+        </div>
+        <div ng-view="">
+        </div>
+
+
+
+    </body>
+
+
+    <script type="text/ng-template" id="tabDialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)" class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="" >
+      <form>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>Login & Registration</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+              <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Login">
+              <md-content class="md-padding">
+                <h4 class="md-display-2">Login</h4>
+                    <md-input-container>
+                        <label>Email</label>
+                        <textarea col="20" height="5" ng-model="login.emailLogin" name='gymName' required></textarea>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Password</label>
+                        <textarea col="20" height="5" ng-model="login.passwordLogin" name='gymName' required></textarea>
+                    </md-input-container>
+
+              </md-content>
+            </md-tab>
+            <md-tab label="Register">
+              <md-content class="md-padding">
+                  <md-input-container>
+                      <label>First Name:</label>
+                      <textarea col="20" height="5" ng-model="login.first_name" required></textarea>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Last Name:</label>
+                      <textarea col="20" height="5" ng-model="login.last_name" required></textarea>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Username:</label>
+                      <textarea col="20" height="5" ng-model="login.username" required></textarea>
+                  </md-input-container>
+
+                  <md-input-container>
+                      <label>Email:</label>
+                      <textarea col="20" height="5" ng-model="login.email" required></textarea>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Confirm Email:</label>
+                      <textarea col="20" height="5" ng-model="login.confirmEmail" required></textarea>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Password</label>
+                      <input type='password' id='pw1' name='pw1' ng-model='login.password' ng-required/>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Confirm Password</label>
+                      <input type='password' id='pw2' name='pw2' ng-model='login.confirmPassword' ng-required pw-check='pw1'/>
+                  </md-input-container>
+                  <div class='msg-block' ng-show='myForm.$error'>
+                  <span class='msg-error' ng-show='myForm.pw2.$error.pwmatch'>
+                    Passwords don't match.
+                  </span>
+                </div>
+
+
+
+                  <md-input-container>
+                      <label>Birthday</label>
+                      <md-datepicker ng-model="login.birthday" required></md-datepicker>
+                  </md-input-container>
+                  <md-radio-group ng-model='login.gender'>
+                      <md-radio-button value='Male'> Male </md-radio-button>
+                      <md-radio-button value='Female'> Female </md-radio-button>
+                  </md-radio-group>
+
+
+
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-dialog-content>
+
+        <md-dialog-actions ng-controller='loginController' layout="row">
+          <span flex></span>
+          <md-button ng-click="cancel()" >
+              Cancel
+          </md-button>
+          <md-button ng-click="submitCheck(login)" style="margin-right:20px;" >
+              Submit
+          </md-button>
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+    </script>
+</html>

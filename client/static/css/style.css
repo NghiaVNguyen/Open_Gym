@@ -1,0 +1,260 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+}
+p {
+    font-family: Palatino Linotype;
+    font-color: #ff6a5c;
+    font-size: 16px;
+}
+label, h4, legend, h1, h2 {
+    color: #ff6a5c;
+}
+a:hover {
+    background-color: white;
+}
+a.logoA :hover {
+
+}
+
+
+
+body#mainBody {
+    width: 1080px;
+    min-height: 1000px;
+    background-color: #f0efec;
+}
+
+div#navBar {
+    width: 1080px;
+    height: 170px;
+    background-color: #4d4d4d;
+    display: inline-block;
+}
+    div.logo img {
+        margin-top: -60px;
+        margin-right: 260px;
+    }
+        a.navBarLink {
+            color: white;
+            margin-left: 0px;
+            font-size: 16px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+    div.categories {
+        width: 1080px;
+        height: 40px;
+        background-color: #2d2c2f;
+        margin-top: -72px;
+        padding-top: 8px;
+    }
+    input.searchBar{
+        margin-left: 40px;
+        margin-right: 170px;
+    }
+    .input[type=text] {
+        width: 130px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        }
+
+        /* When the input field gets focus, change its width to 100% */
+        input[type=text]:focus {
+        width: 20%;
+        }
+    a.categoryLink {
+        color: white;
+        margin-left: 40px;
+        font-size: 16px;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+
+/*////HOMEPAGE PARTIAL////*/
+div.homepagePartial {
+    width: 1080px;
+    height: 600px;
+    /*background-color: brown;*/
+}
+div.imageSlider {
+    margin-top: 50px;
+}
+md-slider.slide {
+    width: 30px;
+}
+
+
+
+
+/*////SEARCH PARTIAL////*/
+div.searchContainer {
+    width: 920px;
+    min-height: 200px;
+    margin-left: 80px;
+    margin-top: 70px;
+    padding-top: 30px;
+    background-color: white;
+}
+    div.searchBox {
+        width: 880px;
+        min-height: 200px;
+        border: 1px solid black;
+    }
+    p.searchBox {
+        font-size: 30px;
+    }
+    p.botSearch {
+        display: inline-block;
+        margin-left: 30px;
+        font-size: 20px;
+    }
+
+div.myCustomModal {
+    display: inline;
+    width: 800px;
+    height: 300px;
+
+}
+    div.formItem {
+        display: inline-block;
+    }
+    md-select.state {
+        margin-top: -25px;
+        width: 80px;
+    }
+    md-select.sport {
+        margin-top: -10px;
+        margin-left: 30px;
+        width: 120px;
+    }
+    label.labelCost{
+        font-size: 14px;
+        font-weight: normal;
+    }
+    md-input-container.labelCon {
+        width: 80px;
+        margin-top: 31px;
+    }
+
+    div.resultContainer {
+        display: inline-block;
+        width: 880px;
+        min-height: 200px;
+        margin-top: 70px;
+        padding-top: 30px;
+    }
+    div.oneResult {
+        width: 920px;
+        min-height: 300px;
+        margin-left: 80px;
+        background-color: #ff9b90;
+        margin-top: 10px;
+    }
+        div.leftSearch {
+            height: 200px;
+            width: 40px;
+            display: inline-block;
+        }
+        div.rightSearch {
+            height: 200px;
+            width: 600px;
+            display: inline-block;
+            margin-left: 200px;
+            vertical-align: top;
+        }
+        div.descriptionResult {
+            width: 500px;
+            height: 100px;
+            float: left;
+        }
+        div.bottomResult {
+            width: 300px;
+            height: 60px;
+            display: inline-block;
+
+        }
+        p.bottomInfoP {
+            font-size: 18px;
+        }
+        md-input-container.imagelinkCon
+
+
+
+
+
+/*////////Animate Scroll///////////*/
+
+.not-visible {
+  visibility: hidden;
+}
+
+        .slide-reveal.ng-enter {
+          -webkit-transition:0.5s linear all;
+          -moz-transition:0.5s linear all;
+          -o-transition:0.5s linear all;
+          transition:0.5s linear all;
+
+          opacity:0.5;
+          position:relative;
+          opacity:0;
+          top:10px;
+        }
+        .slide-reveal.ng-enter-active {
+          top:0;
+          opacity:1;
+        }
+
+        .expand.ng-enter {
+          -webkit-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          -moz-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          -o-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+
+          opacity:0;
+          max-height:0;
+          overflow:hidden;
+        }
+        .expand.ng-enter-active {
+          opacity:1;
+          max-height:40px;
+        }
+
+        .expand.ng-leave {
+          -webkit-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          -moz-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          -o-transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+          transition:0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) all;
+
+          opacity:1;
+          max-height:40px;
+          overflow:hidden;
+        }
+        .expand.ng-leave-active {
+          opacity:0;
+          max-height:0;
+        }
+
+
+
+
+
+
+        .dialogdemoBasicUsage #popupContainer {
+      position: relative; }
+
+    .dialogdemoBasicUsage .footer {
+      width: 100%;
+      text-align: center;
+      margin-left: 20px; }
+
+    .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+      font-size: 0.8em;
+      margin-top: 50px; }
+
+    .dialogdemoBasicUsage button {
+      width: 200px; }
+
+    .dialogdemoBasicUsage div#status {
+      color: #c60008; }
+
+    .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+      margin-bottom: 0; }

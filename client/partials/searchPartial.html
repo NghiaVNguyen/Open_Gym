@@ -1,0 +1,231 @@
+<div ng-controller="searchController">
+    <div class='searchContainer'>
+        <div class='searchBox'>
+            <form>
+
+            <p class='pSearch'>City
+                <md-input-container >
+                <md-select ng-model='searchInput.city' class='sport' ng-required='true'>
+                    <label>Select</label>
+                    <md-selected-text></md-selected-text>
+                    <md-option value='Seattle'>Seattle</md-option>
+                    <md-option value='Everett'>Everett</md-option>
+                    <md-option value='Bellevue'>Bellevue</md-option>
+                </md-select>
+            </md-input-container>
+            </p>
+             <p class='pSearch'>Sport
+                 <md-input-container >
+                     <md-select ng-model='searchInput.sport' class='sport' ng-required='true'>
+                         <label>Select</label>
+                         <md-selected-text></md-selected-text>
+                         <md-option value='Volleyball'>Volleyball</md-option>
+                         <md-option value='Soccer'>Soccer</md-option>
+                         <md-option value='Basketball'>Basketball</md-option>
+                         <md-option value='Football'>Football</md-option>
+                     </md-select>
+                 </md-input-container>
+              </p>
+
+              <p class='botSearch'> Rating:
+                  <md-slider class="slide"  md-discrete ng-model="searchInput.rating"  step='1' min="1" max="5" aria-label='rating' aria-valuemin='1' aria-valuenow='3' aria-valuemax='5' aria-invalid='false' ></md-slider>
+              </p>
+              <p class='botSearch'> Cost:
+                  <md-slider class='slide' md-discrete ng-model="searchInput.cost"  step='1' min="1" max="10" aria-label='cost' aria-valuemin='1' aria-valuenow='3' aria-valuemax='10' aria-invalid='false'></md-slider>
+              </p>
+              <p class='botSearch'> Level:
+                  <md-slider class='slide' md-discrete ng-model="searchInput.level"  step='1' min="1" max="5" aria-label='level' aria-valuemin='1' aria-valuenow='3' aria-valuemax='5' aria-invalid='false'></md-slider>
+              </p>
+
+              <md-button class="md-primary md-raised" ng-click='searchGyms(searchInput)'>Search</md-button>
+
+          </form>
+
+          <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+              Create a New Gym
+          </md-button>
+
+
+
+
+   </div>
+</div>
+
+
+<!-- ////////////////Search Results /////////////////////// -->
+
+
+<div class='resultContainer'>
+    <div class='oneResult' ng-repeat='result in searchResults.gymResults' when-visible="animateElementIn" when-not-visible="animateElementOut" class="not-visible car-container">
+
+        <div class='leftSearch'>
+            <img src='{{result.image_url}}' height='200' width="200">
+
+        </div>
+        <div class='rightSearch'>
+            <div class='topRightSearch'>
+                <h3>{{result.name}}</h3>
+                <p class='addressInfo'>{{result.address}} - {{result.city}}, {{result.state}}</p>
+            </div>
+
+            <div class='descriptionResult'>
+                <p>{{result.description}}</p>
+            </div>
+            <div class='bottomResult'>
+
+                <p class='bottomInfoP'>{{result.days}}</p>
+                <p>{{result.timeStart | date: 'h:mma'}} to {{result.timeEnd | date: 'h:mma'}}</p>
+ <p><b>Level:</b> {{result.level}}
+<b>Cost:</b> {{result.cost}}
+<b>Sport:</b> {{result.sport}}</p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- //////////////Modal to Create Gym//////////////////// -->
+<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak ng-submit="createGym(gym)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>New Gym</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+
+      <div class="md-dialog-content">
+          <div class="myCustomModal">
+
+            <legend>Gym Info</legend>
+              <div class='formItem' name='gymForm'>
+              <h4>Gym Name:</h4>
+              <md-input-container>
+                  <label>Name</label>
+                  <textarea col="20" height="5" ng-model="gym.name" name='gymName' required></textarea>
+              </md-input-container>
+
+            </div>
+            <div class='formItem'>
+              <h4>Description:</h4>
+              <md-input-container>
+                  <label>details, environment, specific directions, etc. </label>
+                  <textarea col="20" height="5" ng-model="gym.description" required></textarea>
+              </md-input-container>
+          </div>
+          <div class='formItem'>
+              <h4>Address:</h4>
+              <md-input-container>
+                  <label>1234 Abcd Street</label>
+                  <textarea col="20" height="5" ng-model="gym.address" required></textarea>
+              </md-input-container>
+          </div>
+          <div class='formItem'>
+              <h4>City, State</h4>
+              <md-input-container>
+                  <label>Seattle</label>
+                  <textarea col="20" height="5" ng-model="gym.city" required></textarea>
+              </md-input-container>
+              <md-input-container >
+              <md-select ng-model='gym.state' class='state' required>
+                  <label>State</label>
+                  <md-option value='WA'>WA</md-option>
+                  <md-option value='CA'>CA</md-option>
+                  <md-option value='TX'>TX</md-option>
+              </md-select>
+              </md-input-container>
+          </div>
+
+          <legend>Event Info</legend>
+                <div class='formItem'>
+                    <md-checkbox ng-model='gym.Monday'>Monday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Tuesday'>Tuesday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Wednesday'>Wednesday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Thursday'>Thursday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Friday'>Friday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Saturday'>Saturday(s)</md-checkbox>
+                    <md-checkbox ng-model='gym.Sunday'>Sunday(s)</md-checkbox>
+
+                </div>
+
+                <div class='formItem'>
+                    <label>Start Time*</label>
+                    <input type="time" name="input" ng-model="gym.timeStart" placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" ng-required='true' />
+                    <label>End Time*</label>
+                    <input type="time" name="input" ng-model="gym.timeEnd" placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" ng-required='true' />
+                </div>
+
+                <div class='formItem'>
+                    <md-input-container >
+                    <md-select ng-model='gym.sport' class='sport' required>
+                        <label>Sport</label>
+                        <md-option value='Volleyball'>Volleyball</md-option>
+                        <md-option value='Soccer'>Soccer</md-option>
+                        <md-option value='Basketball'>Basketball</md-option>
+                        <md-option value='Football'>Football</md-option>
+                    </md-select>
+                </md-input-container>
+                </div>
+
+                <div class='formItem'>
+                    <md-input-container >
+                        <md-select ng-model='gym.level' class='sport' required>
+                            <label>Level</label>
+                            <md-option value='1'>Recreation</md-option>
+                            <md-option value='2'>B</md-option>
+                            <md-option value='3'>BB</md-option>
+                            <md-option value='4'>A</md-option>
+                            <md-option value='5'>AA or higher</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div class='formItem'>
+                    <md-input-container  class='labelCon'>
+                        <label class='labelCost'>Cost</label>
+                        <input type='number' ng-model='gym.cost' min='0' ng-required='true'>
+                    </md-input-container>
+                </div>
+
+                <div class='formItem'>
+                    <md-input-container class='imagelinkCon'>
+                        <label class='labelCost'>Image URL</label>
+                        <input type='text' ng-model='gym.image_url' min='0' ng-required='true'>
+                    </md-input-container>
+                </div>
+
+
+          </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+          Cancel
+      </md-button>
+
+      <md-input-container>
+      <md-button type="submit" value="Submit">Submit</md-button>
+        </md-input-container>
+
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script>
+
+</div>
+
+
+</div>
