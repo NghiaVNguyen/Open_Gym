@@ -59,12 +59,12 @@
     <div class='oneResult' ng-repeat='result in searchResults.gymResults' when-visible="animateElementIn" when-not-visible="animateElementOut" class="not-visible car-container">
 
         <div class='leftSearch'>
-            <img src='{{result.image_url}}' height='200' width="200">
-
+            <a href='/#/gymInfo/{{result._id}}'><img src='{{result.image_url}}' height='200' width="200"></a>
+            <md-button class='btnCheckIn' ng-click='checkIn()'>Check In</md-button>
         </div>
         <div class='rightSearch'>
             <div class='topRightSearch'>
-                <h3>{{result.name}}</h3>
+                <a href='/#/gymInfo/{{result._id}}'><h3>{{result.name}}</h3></a>
                 <p class='addressInfo'>{{result.address}} - {{result.city}}, {{result.state}}</p>
             </div>
 
@@ -75,12 +75,31 @@
 
                 <p class='bottomInfoP'>{{result.days}}</p>
                 <p>{{result.timeStart | date: 'h:mma'}} to {{result.timeEnd | date: 'h:mma'}}</p>
- <p><b>Level:</b> {{result.level}}
-<b>Cost:</b> {{result.cost}}
-<b>Sport:</b> {{result.sport}}</p>
-
+                 <p><b>Level:</b> {{result.level}}
+                <b>Cost:</b> {{result.cost}}
+                <b>Sport:</b> {{result.sport}}</p>
             </div>
         </div>
+
+        <br><br><br><br><br>
+    <div class="expandMores">
+            <div class='expandMore' ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                <label>Show More</label>
+            </div>
+
+            <div class="slideDown" ng-hide="active">
+              <div class="expand-collapse-content">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+              <form>
+                  <textarea cols='50' rows='10'></textarea>
+                  <md-button type='submit' ng-click='submitReview'>Submit Comment</md-button>
+              </form>
+            </div>
+    </div>
+
 
     </div>
 </div>

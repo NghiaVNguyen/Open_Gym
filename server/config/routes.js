@@ -6,7 +6,7 @@ module.exports = function(app){
   app.put('/gym', gym.search);
   app.post('/gym', gym.createGym);
   app.post('/login', user.createUser);
-  // app.put('/friends/:id', friends.update);
+  app.get('/gym/:id', gym.searchOne);
   // app.delete('/friends/:id', friends.delete);
 
 }

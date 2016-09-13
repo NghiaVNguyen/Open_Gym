@@ -26,9 +26,16 @@
         <script src='./assets/searchController.js'></script>
         <script src='./assets/newGymController.js'></script>
         <script src='./assets/loginController.js'></script>
+        <script src='./assets/gymInfoController.js'></script>
+        <script src='./assets/flippy.js'></script>
+
+        <!-- <script src='app.js'></script> ///facebook/// -->
+
+
         <!-- ////Factories//// -->
         <script src='./services/searchFactory.js'></script>
         <script src='./services/loginFactory.js'></script>
+        <script src='./services/gymInfoFactory.js'></script>
 
         <!-- ////Scroll Animation//// -->
         <script src="angular-scroll-animate/dist/angular-scroll-animate.js"></script>
@@ -38,6 +45,8 @@
     </head>
 
     <body id='mainBody'>
+
+
         <div id='navBar'>
             <div class='logo'>
                 <a href='/#/' class='logoA'><img src='images/logo2.png' height="300" width="300"></a>
@@ -58,6 +67,7 @@
 
 
     </body>
+
 
 
     <script type="text/ng-template" id="tabDialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)" class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="" >
@@ -151,8 +161,13 @@
           <md-button ng-click="submitCheck(login)" style="margin-right:20px;" >
               Submit
           </md-button>
+
+          <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
         </md-dialog-actions>
       </form>
     </md-dialog>
     </script>
+
+
+
 </html>

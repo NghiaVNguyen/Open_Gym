@@ -1,0 +1,23 @@
+<div ng-controller="gymInfoController">
+
+
+
+
+    <div class='gymInfo' ng-repeat='info in gym'>
+        <h1> {{info.name}}</h1>
+
+        <p class='addressInfo'>{{info.address}} - {{info.city}}, {{info.state}}</p>
+        <p>{{info.description}}</p>
+
+
+        <p class='bottomInfoP'>{{info.days}}</p>
+        <p>{{info.timeStart | date: 'h:mma'}} to {{info.timeEnd | date: 'h:mma'}}</p>
+         <p><b>Level:</b> {{info.level}}
+        <b>Cost:</b> {{info.cost}}
+        <b>Sport:</b> {{info.sport}}</p>
+
+
+    </div>
+
+
+</div>

@@ -1,9 +1,9 @@
-var app = angular.module('app', ['ngRoute', 'ngMessages', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'ngMaterial', 'angular-scroll-animate'])
+var app = angular.module('app', ['ngRoute', 'ngMessages', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'ngMaterial', 'angular-scroll-animate', 'angular-flippy'])
 
 .config(function($routeProvider){
     $routeProvider
     .when('/', {
-        templateUrl: 'partials/homePartial.html'
+        templateUrl: 'partials/homePartial2.html'
     })
     .when('/search', {
         templateUrl: 'partials/searchPartial.html'
@@ -11,9 +11,9 @@ var app = angular.module('app', ['ngRoute', 'ngMessages', 'ui.bootstrap', 'ngAni
     .when('/newGym', {
         templateUrl: 'partials/newGymPartial.html'
     })
-    // .when('/edit/:_id', {
-    //     templateUrl: 'partials/editPartial.html'
-    // })
+    .when('/gymInfo/:_id', {
+        templateUrl: 'partials/gymInfo.html'
+    })
     .otherwise({
         redirectTo:'/'
     })

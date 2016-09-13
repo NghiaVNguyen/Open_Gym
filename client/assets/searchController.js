@@ -1,12 +1,11 @@
 // angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 
-app.controller('searchController', function($scope, $element, $mdDialog, searchFactory) {
+app.controller('searchController', function($scope, $element, $mdDialog, $interval, searchFactory) {
     $scope.status = '  ';
     $scope.customFullscreen = false;
-
-
     $scope.searchResults = [];
 
+    $scope.active = true;
     $scope.showAdvanced = function(ev) {
       $mdDialog.show({
         controller: DialogController,
@@ -22,6 +21,9 @@ app.controller('searchController', function($scope, $element, $mdDialog, searchF
         $scope.status = 'You cancelled the dialog.';
       });
     };
+
+
+
 
 
 
@@ -92,6 +94,11 @@ app.controller('searchController', function($scope, $element, $mdDialog, searchF
 		$el.removeClass('animated ' + $scope.animation.current);
 	};
 
+
+    /////check in//////
+    // $scope.checkIn = function(session.id){
+    //     ///send to factory and check in//
+    // }
 
 });
 

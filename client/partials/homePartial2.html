@@ -1,0 +1,84 @@
+<div ng-controller="homeController">
+
+
+<!--
+    <div class="flip-container">
+
+                <div class="flipper" ng-click="flipCard()" ng-class="{'flipToFront':isCardRevealed, 'flipToBack':!isCardRevealed}">
+                    <div class="back" ng-class="{'face-hidden':hideBackFace}">
+                    </div>
+                    <div class="front" ng-class="{'face-hidden':!hideBackFace}">
+                        <p ng-if="currentCard.icon">{{currentCard.icon}}</p>
+                        <br ng-if="currentCard.icon" />
+                        <img ng-if="currentCard.imageUrl" src="{{currentCard.imageUrl}}" alt="currentCard.imageAlt" height='180' width='180' />
+                        <p>{{currentCard.description}}</p>
+                    </div>
+                </div>
+
+
+            <footer>
+                <div ng-if="currentCard && currentCard.source">
+                    <a ng-href="{{currentCard.source}}" target="_blank">Source</a>
+                </div>
+            </footer>
+            <br />
+            <br />
+</div> -->
+
+
+<div class="container">
+    <h1>angular-flippy Demo Page</h1>
+    <p>
+      Please refer to the <a href="https://github.com/zwacky/angular-flippy">README.md</a> for instructions on how to use angular-flippy.
+    </p>
+    <br><br><br><br><br><br>
+    <div class="col-sm-12" ng-repeat="item in [1]">
+      <h2>Item #{{$index+1}}</h2>
+      <flippy ng-click='runthis()'
+              class="fancy"
+              flip="['load']"
+              flip-back="['load']"
+              duration="800"
+              timing-function="ease-in-out">
+
+        <flippy-front>
+          <img src="http://placehold.it/300x300&text=Im the front" alt="the front" />
+        </flippy-front>
+
+        <flippy-back>
+          <img src="http://placehold.it/300x300&text=Aaaaaand the back" alt="the back" />
+        </flippy-back>
+
+      </flippy>
+    </div>
+  </div>
+
+  <div class="container">
+      <h1>angular-flippy Demo Page</h1>
+      <p>
+        Please refer to the <a href="https://github.com/zwacky/angular-flippy">README.md</a> for instructions on how to use angular-flippy.
+      </p>
+      <br><br><br><br><br><br>
+      <div class="col-sm-12" ng-repeat="item in [1]">
+        <h2>Item #{{$index+1}}</h2>
+        <flippy2
+                class="fancy2"
+                flip="['load']"
+                flip-back="['load']"
+                duration="800"
+                timing-function="ease-in-out">
+
+          <flippy-front2>
+            <img src="http://placehold.it/300x300&text=Im the front" alt="the front" />
+        </flippy-front2>
+
+          <flippy-back2>
+            <img src="http://placehold.it/300x300&text=Aaaaaand the back" alt="the back" />
+        </flippy-back2>
+
+      </flippy2>
+      </div>
+    </div>
+
+
+</div>

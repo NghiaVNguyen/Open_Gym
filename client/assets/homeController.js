@@ -1,8 +1,12 @@
-angular.module('app').controller('homeController', function ($scope, $mdDialog) {
+angular.module('app').controller('homeController', function ($scope, $mdDialog, $interval) {
     $scope.myInterval = 5000;
      $scope.noWrapSlides = false;
      $scope.active = 0;
      var currIndex = 0;
+     /**
+      * handles the behaviour of flipping card.
+      */
+
      var slides = $scope.slides = [
          {
              image: './images/volleyball2.jpg',
@@ -73,10 +77,85 @@ angular.module('app').controller('homeController', function ($scope, $mdDialog) 
   }
 
 
-  $scope.searchQuery = function(data){
-      console.log(data)
-  }
+//   (function(d){
+//     // load the Facebook javascript SDK
+//
+//     var js,
+//     id = 'facebook-jssdk',
+//     ref = d.getElementsByTagName('script')[0];
+//
+//     if (d.getElementById(id)) {
+//       return;
+//     }
+//
+//     js = d.createElement('script');
+//     js.id = id;
+//     js.async = true;
+//     js.src = "//connect.facebook.net/en_US/all.js";
+//
+//     ref.parentNode.insertBefore(js, ref);
+//
+//   }(document));
+//   $window.fbAsyncInit = function() {
+//     FB.init({
+//       appId: '{your-app-id}',
+//       status: true,
+//       cookie: true,
+//       xfbml: true,
+//       version: 'v2.4'
+//     });
+// };
+//
 
 
+ //
+ //     $scope.cards = [
+ //     {
+ //         title: "escheresque-dark",
+ //         icon:"",
+ //         imageUrl:"http://subtlepatterns.com/patterns/escheresque_ste.png",
+ //         description:"Sublte Pattern Source image below...",
+ //         source: "http://subtlepatterns.com/escheresque-dark/"
+ //     },
+ //     {
+ //         title: "dark sharp edges",
+ //         icon:"",
+ //         imageUrl:"http://subtlepatterns.com/patterns/footer_lodyas.png",
+ //         description:"Sublte Pattern Source image below...",
+ //         source: "http://subtlepatterns.com/dark-sharp-edges/"
+ //     },
+ //     {
+ //         title: "Grey Washed Wall",
+ //         icon:"",
+ //         imageUrl:"http://subtlepatterns.com/patterns/grey_wash_wall.png",
+ //         description:"Sublte Pattern Source image below...",
+ //         source: "http://subtlepatterns.com/grey-washed-wall/"
+ //     }
+ // ];
+ //     $scope.currentCard = {};
+ //
+ //     $scope.isCardRevealed = false;
+ //     $scope.flipCard = function() {
+ //         $scope.isCardRevealed = !$scope.isCardRevealed;
+ //         if($scope.isCardRevealed) {
+ //             $scope.generateCard();
+ //         } else {
+ //             $scope.currentCard = {};
+ //                setTimeout(function() {
+ //                $scope.isBackHidden = !$scope.isCardRevealed;
+ //             }, 0.1 * 1000);
+ //
+ //         }
+ //å
+ //     }
+ //
+ //     $interval( function(){ $scope.flipCard(); }, 3000);
+ //
+ //     $scope.generateCard = function() {
+ //         $scope.currentCard = {};
+ //         var index = Math.floor((Math.random() * $scope.cards.length) + 0);
+ //          $scope.currentCard = $scope.cards[index];
+ //     }
 
-});
+
+})

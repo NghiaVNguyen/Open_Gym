@@ -66,6 +66,17 @@ function GymController(){
         })
   };
 
+  this.searchOne = function(req,res){
+      console.log(req.params.id)
+      Gym.findOne({_id: req.params.id}, function(err, gymOne){
+          if(err){
+              console.log(err);
+          } else {
+              res.json({Gym: gymOne})
+          }
+      })
+  }
+
 
 }
 
