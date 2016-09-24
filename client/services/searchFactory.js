@@ -18,6 +18,12 @@ app.factory('searchFactory', function($http, $location){
         })
     }
 
+    factory.searchCriteria = function(){
+        $http.get('/gym').success(function(output){
+            console.log(output);
+        })
+    }
+
     console.log('factory working')
     return factory
 })

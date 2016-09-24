@@ -13,6 +13,12 @@ app.factory('gymInfoFactory', function($http, $location){
         })
     }
 
+    factory.makeReview = function(comment, gymID){
+        console.log(comment);
+        $http.get('/gym/review/' + gymID, comment).success(function(output){
+            console.log(output);
+        })
+    }
     console.log('factory working')
     return factory
 })

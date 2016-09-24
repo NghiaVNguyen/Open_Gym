@@ -4,6 +4,7 @@ app.controller('searchController', function($scope, $element, $mdDialog, $interv
     $scope.status = '  ';
     $scope.customFullscreen = false;
     $scope.searchResults = [];
+    $scope.searchCriteria;
 
     $scope.active = true;
     $scope.showAdvanced = function(ev) {
@@ -21,9 +22,6 @@ app.controller('searchController', function($scope, $element, $mdDialog, $interv
         $scope.status = 'You cancelled the dialog.';
       });
     };
-
-
-
 
 
 
@@ -72,7 +70,22 @@ app.controller('searchController', function($scope, $element, $mdDialog, $interv
       }
     }
 
+    // if($scope.searchCriteria === undefined){
+    //     searchFactory.searchCriteria();
+    //
+    //     // searchFactory.searchGym(data, function(searchResults){
+    //     //     $scope.searchResults = searchResults;
+    //     //     console.log($scope.searchResults);
+    //     //     console.log("*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&**&*&*&*&*&*&*&* ")
+    //     // })
+    // 
+    // }
+
+
     $scope.searchGyms = function(data, callback){
+        $scope.searchCriteria = data;
+        console.log($scope.searchCriteria);
+
         searchFactory.searchGym(data, function(searchResults){
             $scope.searchResults = searchResults;
             console.log($scope.searchResults);

@@ -77,6 +77,17 @@ function GymController(){
       })
   }
 
+  this.createReview = function(req, res){
+      console.log(req.body);
+      console.log(req.params);
+    console.log('working')
+  }
+
+  this.searchCriteria = function(req, res){
+
+  }
+
+
 
 }
 

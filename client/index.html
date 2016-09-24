@@ -2,7 +2,7 @@
 <html ng-app='app'>
     <head>
         <meta charset="utf-8">
-        <title>My Store</title>
+        <title>Open Gym Central</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css'>
         <link rel='stylesheet' href='/static/css/style.css'>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
@@ -70,7 +70,7 @@
 
 
 
-    <script type="text/ng-template" id="tabDialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)" class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="" >
+    <script type="text/ng-template" id="tabDialog.tmpl.html" ng-controller="gymInfoController"><md-dialog aria-label="Mango (Fruit)" class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="" >
       <form>
         <md-toolbar>
           <div class="md-toolbar-tools">
@@ -167,6 +167,7 @@
       </form>
     </md-dialog>
     </script>
+
 
 
 

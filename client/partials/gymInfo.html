@@ -4,7 +4,9 @@
 
 
     <div class='gymInfo' ng-repeat='info in gym'>
-        <h1> {{info.name}}</h1>
+
+    <center><img src='{{info.image_url}}' height="300" width="450"></center>
+        <center><h1> {{info.name}}</h1></center>
 
         <p class='addressInfo'>{{info.address}} - {{info.city}}, {{info.state}}</p>
         <p>{{info.description}}</p>
@@ -16,6 +18,17 @@
         <b>Cost:</b> {{info.cost}}
         <b>Sport:</b> {{info.sport}}</p>
 
+
+        <label class='commentFormItem'>Reviews</label>
+        <div class='commentForm'>
+            <form>
+                <label class='commentFormItem' ng-if='reviewsFalse'>Leave a review here</label>
+                <textarea class='commentFormItem' cols="80" rows="6" ng-model="comments" placeholder="Leave a review"></textarea>
+                <div class='submitbtnCom'>
+                    <md-button ng-click='makeReview(comments, info._id)'> Submit</md-button>
+                </div>
+            </form>
+        </div>
 
     </div>
 

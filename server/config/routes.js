@@ -5,8 +5,10 @@ var user = require('../controllers/userController.js');
 module.exports = function(app){
   app.put('/gym', gym.search);
   app.post('/gym', gym.createGym);
+  app.get('/gym/review/:id', gym.createReview);
   app.post('/login', user.createUser);
   app.get('/gym/:id', gym.searchOne);
+  app.get('/gym', gym.searchCriteria);
   // app.delete('/friends/:id', friends.delete);
 
 }

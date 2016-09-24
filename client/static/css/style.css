@@ -147,7 +147,7 @@ div.myCustomModal {
         width: 920px;
         min-height: 300px;
         margin-left: 80px;
-        background-color: #ff9b90;
+        background-color: #b5927b;
         margin-top: 10px;
     }
         div.leftSearch {
@@ -338,3 +338,29 @@ flippy.fancy flippy-back.flipped {
 }
 
 /*////////////End Card Flip/////////////*/
+
+
+
+/*//////Single Gym Info Page /////////////*/
+
+    div.gymInfo {
+        min-height: 800px;
+        width: 800px;
+        margin-top: 30px;
+        margin-left: 100px;
+        background-color: #b5927b;
+        padding:10px;
+    }
+
+    div.commentForm {
+        margin-left: 100px;
+        width: 650px;
+        min-height: 200px;
+    }
+    .commentFormItem{
+        display: inline-block;
+    }
+
+    div.submitbtnCom {
+        margin-left: 480px;
+    }

@@ -1,9 +1,10 @@
 var app = angular.module('app', ['ngRoute', 'ngMessages', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'ngMaterial', 'angular-scroll-animate', 'angular-flippy'])
 
+
 .config(function($routeProvider){
     $routeProvider
     .when('/', {
-        templateUrl: 'partials/homePartial2.html'
+        templateUrl: 'partials/homePartial.html'
     })
     .when('/search', {
         templateUrl: 'partials/searchPartial.html'
